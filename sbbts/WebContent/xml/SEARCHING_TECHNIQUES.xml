@@ -1,0 +1,113 @@
+<?xml version="1.0" ?>
+<SEARCHING_TECHNIQUES>
+<TOPIC id="SE01">
+		<TOPIC_NAME>Searching</TOPIC_NAME>
+		
+		<DESCRIPTION> 
+			Searching refers to the operation of finding the location of a given item in a collection of items.
+			The search is said to be successful if ITEM does appear in DATA and unsuccessful otherwise.
+			The following searching algorithms are discussed in this chapter.
+				1. Sequential Searching
+				2. Binary Search
+				3. Binary Tree Search
+		</DESCRIPTION>
+		<SUB_TOPIC id="S201">
+			
+			<SUB_TOPIC_NAME>1.Sequential Search </SUB_TOPIC_NAME>
+			<SUB_TOPIC_ID>S201</SUB_TOPIC_ID>
+			<INTRO id="intro"> 
+			      This is the most natural searching method. The most intuitive way to search for a given ITEM in DATA is to compare ITEM with each element of DATA one by one.
+			</INTRO>
+			<DEFINITION id="def">
+			SEQUENTIAL SEARCH
+				INPUT : List of Size N. Target Value T
+				OUTPUT : Position of T in the list-1
+				BEGIN
+				Set FOUND = false
+				Set I := 0
+				While (I &lt; = N) and (FOUND is false)
+				IF List[i] ==t THEN
+				FOUND = true
+				ELSE
+				I = I+1
+				IF FOUND==false THEN
+				T is not present in the List
+				END
+				
+			</DEFINITION>
+			<EXAMPLE id="ex">
+			Let DATA be the following sorted 13-element array:
+			DATA: 11, 22, 30, 33, 40, 44, 55, 60, 66, 77, 80, 88, 99
+			We apply the binary search to DATA for different values of ITEM.
+			(a) Suppose ITEM = 40. 
+			The search for ITEM in the array DATA is pictured in where the values of DATA[BEG] and DATA[END] in each stage of the algorithm are indicated by parenthesis and- the value of DATA[MID] by a bold. 
+			Specifically, BEG, END and MID will have the following successive values:
+			(1) Initially, BEG = 1 and END 13. Hence, MID = INT[(1 + 13) / 2 ] = 7 and so DATA[MID] = 55
+			(2) Since 40 &lt; 55, END = MID - 1 = 6. Hence, MID = INT[(1 + 6) / 2 ] = 3 and so DATA[MID] = 30
+			(3) Since 40 > 30, BEG = MID + 1 = 4. Hence, MID = INT[(4 + 6) / 2 ] = 5 and so DATA[MID] = 40
+			The search is successful and LOC = MID = 5.
+			(1) (11), 22, 30, 33, 40, 44, 55, 60, 66, 77, 80, 88, (99)
+			(2) (11), 22, 30, 33, 40, (44), 55, 60, 66, 77, 80, 88, 99
+			(3) 11, 22. 30, (33), 40, (44), 55, 60, 66, 77, 80, 88, 99 [Successful]
+			</EXAMPLE>
+			<SUMMARY id="summary">
+				The running time for the average case is approximately equal to the running time for the worst case.
+			</SUMMARY>
+			<ASSIGNMENT id="assign"> 
+			1. What is searching?
+			2. Distinguish between sequential search and binary search.
+			</ASSIGNMENT>
+			
+			<PIC id="img1"> </PIC>
+			<AUDIO id="audio"> </AUDIO>
+			<VIDEO id="video"> </VIDEO>
+		</SUB_TOPIC>
+		
+		
+		
+		<SUB_TOPIC id="S202">
+			
+			<SUB_TOPIC_NAME>2.Binary Search Tree </SUB_TOPIC_NAME>
+			<SUB_TOPIC_ID>S202</SUB_TOPIC_ID>
+			<INTRO id="intro"> 
+			
+				Suppose T is a binary tree. Then T is called a binary search tree if each node N of T has the following property:
+				"The value at N is greater than every value in the left subtree of N and is less than every value in the right subtree of N."
+			</INTRO>
+			<DEFINITION id="def">
+			SEARCHING AND INSERTING IN BINARY SEARCH TREES
+			Suppose an ITEM of information is given. The following algorithm finds the location of ITEM in the binary search tree T, or inserts ITEM as a new node in its appropriate place in the tree.
+			(a) Compare ITEM with the root node N of the tree.
+				(i) If ITEM &lt; N, proceed to the left child of N.
+				(ii) If ITEM &gt; N, proceed to the right child of N.
+			(b) Repeat Step (a) until one of the following occurs:
+				(i) We meet a node N such that ITEM = N. In this case the search is successful.
+				(ii) We meet an empty subtree, which indicates that the search is unsuccessful, and we insert ITEM in place of the empty subtree.
+			In other words, proceed from the root R down through the tree T until finding ITEM in T or inserting ITEM as a terminal node in T.
+				
+			</DEFINITION>
+			<EXAMPLE id="ex">
+			Consider the binary search tree T in Fig. 2.6 . Suppose ITEM = 20 is given. Compare ITEM = 20 with the root, 38, of the tree T. 
+			Since 20 &lt; 38, proceed to the left child of 38, which is 14.
+			1. Compare ITEM = 20 with 14. Since 20 &lt; 14, proceed to the right child of 14, which is 23.
+			2. Compare ITEM = 20 with 23. Since 20 &gt; 23, proceed to the left child of 23, which is 18.
+			3. Compare ITEM = 20 with 18. Since 20 &gt; 18 and 18 does not have a right child, insert 20 as the right child of 18.
+			</EXAMPLE>
+			<SUMMARY id="summary">
+			The sequential search method was seen to be easy to implement and relatively efficient to use small lists. 
+			But very time consuming for long unsorted lists. The binary search method is an improvement, in that it eliminates half the list from consideration at each iteration.
+			</SUMMARY>
+			<ASSIGNMENT id="assign"> 
+			1. The average successful search time for sequential search time taken by binary search on a sorted array of 10 item is
+				(a) 2.6 (b) 2.7 (c) 2.8 (d) 2.9
+			</ASSIGNMENT>
+			<PIC id="img1">binarysearch.jpg</PIC>
+			<AUDIO id="audio"> </AUDIO>
+			<VIDEO id="video"> </VIDEO>
+		</SUB_TOPIC>
+		
+		
+	</TOPIC>
+</SEARCHING_TECHNIQUES>
+	
+	

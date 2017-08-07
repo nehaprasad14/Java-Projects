@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataStructure>
+	<Chapter id='CH01'>
+		<ChCode>CH01</ChCode>
+		<ChName>SORTING_TECHNIQUES</ChName>
+	</Chapter>
+	<Chapter id='CH02'>
+		<ChCode>CH02</ChCode>
+		<ChName>SEARCHING_TECHNIQUES</ChName>
+	</Chapter>
+	
+	
+</DataStructure>

@@ -1,0 +1,231 @@
+<?xml version="1.0" ?>
+<SORTING_TECHNIQUES>
+	<TOPIC id="SO01">
+		<TOPIC_NAME>Internal sort</TOPIC_NAME>
+		
+		<DESCRIPTION> 
+					Internal Sorting takes place in the main memory of a computer. The internal sorting methods are
+				applied to small collection of data. It means that, the entire collection of data to be sorted in
+				small enough that the sorting can take place within main memory. We will study the following
+				methods of internal sorting
+				1. Insertion sort
+				2. Selection sort
+				3. Merge Sort
+				4. Radix Sort
+				5. Quick Sort
+				6. Heap Sort
+				7. Bubble Sort
+		</DESCRIPTION>
+		<SUB_TOPIC id="S101">
+			
+			<SUB_TOPIC_NAME>1. Insertion Sort </SUB_TOPIC_NAME>
+			<SUB_TOPIC_ID>S101</SUB_TOPIC_ID>
+			<INTRO id="intro"> 
+					In this sorting we can read the given elements from 1 to n, inserting each element into its proper position. 
+				For example, the card player arranging the cards dealt to him. The player picks up the card and inserts them into the proper position. 
+				At every step, we insert the item into its proper place.This sorting algorithm is frequently used when n is small. 
+				The insertion sort algorithm scans A from A[l] to A[N], inserting each element A[K] into its proper position in the previously sorted subarray A[l], A[2], . . . , A[K-1]. That is:
+				Pass 1. A[l] by itself is trivially sorted.
+				Pass 2. A[2] is inserted either before or after A[l] so that: A[l], A[2] is sorted.
+				Pass 3. A[3] is inserted into its proper place in A[l], A[2], that is, before A[l],between A[l] and A[2], or after A[2], so that: A[l], A[2], A[3] is sorted.
+				Pass 4. A[4] is inserted into its proper place in A[l], A[2], A[3] so that: A[l], A[2], A[3], A[4] is sorted.
+			
+				Pass N. A[N] is inserted into its proper place in A[l], A[2], . . . , A[N - 1] so that: A[l], A[2], . . . ,A[N] is sorted. 
+			</INTRO>
+			<DEFINITION id="def">
+				INSERTION ( A , N )
+				This algorithm sorts the array A with N elements
+				1. Set A[0] := --8 . [initializes the element]
+				2. Repeat Steps 3 to 5 for K= 2,3,. . . ,N
+				3. Set TEMP := A[K] and PTR:= K-1
+				4. Repeat while TEMP &lt; A[PTR]
+					(a) Set A[PTR +1]:=A[PTR] [Moves element forward]
+					(b) Set PTR := PTR-1
+				[End of loop].
+				5. Set A[PTR+1] := TEMP [inserts element in proper place]
+				[End of Step 2 loop]
+				6. Return
+			</DEFINITION>
+			<EXAMPLE id="ex"> 
+				Insertion sort for n=8 elements
+			</EXAMPLE>
+			<SUMMARY id="summary"> 
+				Complexity of Insertion Sort:
+					The insertion sort algorithm is a very slow algorithm when n is very large.
+				
+					Worst Case
+						The Worst Case occurs when the array A is in reverse order and the inner loop must use the maximum number of K-1 of comparisons.
+							f(n) = 1 +2+ . . . +(n-1) = n (n-1)/2 = O(n2)
+							
+					Average Case
+						The average case occurs when there is (K-1) /2 comparisons in the inner loop.
+							F(n) = 1/2 + 2/2 +...+ (n-1)/2 = n (n-1)/4 = O(n2)
+							
+			</SUMMARY>
+			<ASSIGNMENT id="assign">
+				1. Define Sorting.
+				2. What is internal sorting?
+			</ASSIGNMENT>
+			<PIC id="img1">insertion.jpg</PIC>
+			<AUDIO id="audio"> </AUDIO>
+			<VIDEO id="video"> </VIDEO>
+		</SUB_TOPIC>
+		
+		
+		<SUB_TOPIC id="S102">
+			
+			<SUB_TOPIC_NAME>2. Merge Sort </SUB_TOPIC_NAME>
+			<SUB_TOPIC_ID>S102</SUB_TOPIC_ID>
+			<INTRO id="intro"> 
+					Combing the two lists is called as merging. 
+			</INTRO>
+			<DEFINITION id="def">
+				MERGING ( A, R, B, S, C)
+				Let A and B be sorted arrays with R and S elements. This algorithm merges A and B into an array C with N = R + S elements.
+					1. [Initialize ] Set NA : = 1 , NB := 1 AND PTR : = 1
+					2. [Compare] Repeat while NA &lt; = R and NB &lt; = S
+						If A[NA] &lt; B[NB] , then
+						(a)[Assign element from A to C ] set C[PTR] := A[NA]
+						(b)[Update pointers ] Set PTR := PTR +1 and NA := NA +1
+						Else
+						(a) [Assign element from B to C] Set C[PTR] := B[NB]
+						(b) [Update Pointers] Set PTR := PTR +1 and NB := NB +1
+						[End of loop]
+					3. [Assign remaining elements to C]
+						If NA > R , then Repeat for K = 0 ,1,2,...,S- NB
+						Set C[PTR+K] := B[NB+K]
+						[End of loop]
+						Else
+						Repeat for K = 0,1,2,...,R-NA
+						Set C[PTR+K] := A[NA+K]
+				
+			</DEFINITION>
+			<EXAMPLE id="ex"> 
+				For example A is a sorted list with r elements and B is a sorted list with s elements. 
+				The operation that combines the elements of A and B into a single sorted list C with n = r + s elements is called merging. 
+				After combing the two lists the elements are sorted by using the following merging algorithm.
+				Suppose one is given two sorted decks of cards. That is, at each step, the two front cards are compared and the smaller one is placed in the combined deck. 
+				When one of the decks is empty, all of the remaining cards in the other deck are put at the end of the combined deck. 
+				Similarly, suppose we have two lines of students sorted by increasing heights, and suppose we want to merge them into a single sorted line. 
+				The new line is formed by choosing, at each step, the shorter of the two students who are at the head of their respective lines. 
+				When one of the lines has no more students, the remaining students line up at the end of the combined line.
+				The above discussion will now be translated into a formal algorithm which merges a sorted r-element array A and a sorted s-element array B into a sorted array C, with n = r + s elements. 
+				First of all, we must always keep track of the locations of the smallest element of A and the smallest element of B which have not yet been placed in C. Let NA and NB denote these locations, respectively. 
+				Also, let PTR denote the location in C to be filled. Thus, initially, we set NA : = 1, NB : = 1 and PTR : = 1. 
+				At each step of the algorithm, we compare A[NA] and B[NB] and assign the smaller element to C[PTR]. 
+				Then we increment PTR by setting PTR:=PTR + 1, and we either increment NA by setting NA: = NA + 1 or increment NB by setting NB:= NB + 1, according to whether the new element in C has come from A or from B. 
+				Furthermore, if NA> r, then the remaining elements of B are assigned to C; or if NB > s, then the remaining elements of A are assigned to C.
+			</EXAMPLE>
+			<SUMMARY id="summary"> 
+				The total computing time = O(n log2 n).
+				The disadvantages of using mergesort is that it requires two arrays of the same size and type for the merge phase.
+			</SUMMARY>
+			<ASSIGNMENT id="assign"> 
+			1. Given 2 sorted list of size 'm' and 'n' respectively. The number of comparisons needed in the worst case by the merge sort algorithm will be
+				(a) mn (b) max(m,n) (c) min(m,1) (d) m+n-1
+			2. The way a card game player arranges his cards as he picks them up one by one is an example of
+				(a) bubble sort (b) selection sort (c) insertion sort (d) merge sort
+			</ASSIGNMENT>
+			<PIC id="img1">merge.jpg</PIC>
+			<AUDIO id="audio"> </AUDIO>
+			<VIDEO id="video"> </VIDEO>
+		</SUB_TOPIC>
+		
+	</TOPIC>
+	<TOPIC id="SO02">
+		<TOPIC_NAME>External sort</TOPIC_NAME>
+		
+		<DESCRIPTION> 
+			The External sorting methods are applied only when the number of data elements to be sorted is too large. 
+			These methods involve as much external processing as processing in the CPU. 
+			To study the external sorting, we need to study the various external devices used for storage in addition to sorting algorithms. 
+			This sorting requires auxiliary storage.
+			The following are the examples of external sorting
+			1.Sorting with Disk
+			2.Sorting with Tapes
+
+		</DESCRIPTION>
+		<SUB_TOPIC id="S103">
+			
+			<SUB_TOPIC_NAME>1.Sorting with Disk </SUB_TOPIC_NAME>
+			<SUB_TOPIC_ID>S103</SUB_TOPIC_ID>
+			<INTRO id="intro"> 
+				We will first illustrate merge sort using disks.
+			</INTRO>
+			<DEFINITION id="def">This sorting requires auxiliary storage.These methods involve as much external processing as processing in the CPU. </DEFINITION>
+			<EXAMPLE id="ex">
+			The following example illustrate the concept of sorting with disks.
+			The file F containing 600 records is to be sorted. The main memory is capable of sorting of 1000 records at a time. 
+			The input file F is stored on one disk and we have in addition another scratch disk. The block length of the input file is 500 records.
+			We see that the file could be treated as 6 sets of 1000 records each. Each set is sorted and stored on the scratch disk as a run. 
+			These 5 runs will then be merged as follows.
+			Allocate 3 blocks of memory each capable of holding 500 records. Two of these buffers
+			B1 and B2 will be treated as input buffers and the third B3 as the output buffer. We have now the following
+			1) 6 run R1, R2, R3, R4, R5, R6 on the scratch disk.
+			2) 3 buffers B1,B2 and B3
+				Read 500 records from R1 into B1.
+				Read 500 records from R2 into B2.
+				Merge B1 and B2 and write into B3.
+				When B3 is full- write it out to the disk as run R11.
+				Similarly merge R3 and R4 to get run R12.
+				Merge R5 and R6 to get run R13.
+			Thus, from 6 runs of size 1000 each, we have now 3 runs of size 2000 each.
+			The steps are repeated for steps R11 and R12 to get a run of size 4000.
+			This run is merged with R13 to get a single sorted run of size 6000.
+			</EXAMPLE>
+			<SUMMARY id="summary">
+				Disk sorting is an important activity in large businesses. The choice of an external Sorting algorithm is depends on external system considerations.
+			</SUMMARY>
+			<ASSIGNMENT id="assign"> 
+			1. Choose the correct statement
+				(a)Internal sorting is used if the number of items to be sorted is very large
+				(b)External sorting is used if the number of items to be sorted in very large
+				(c)External sorting needs auxiliary storage
+				(d)Internal sorting needs auxiliary storage.
+			</ASSIGNMENT>
+			
+			<PIC id="img1"> </PIC>
+			<AUDIO id="audio"> </AUDIO>
+			<VIDEO id="video"> </VIDEO>
+		</SUB_TOPIC>
+		
+		<SUB_TOPIC id="S104">
+			
+			<SUB_TOPIC_NAME>2.Sorting with Tapes </SUB_TOPIC_NAME>
+			<SUB_TOPIC_ID>S104</SUB_TOPIC_ID>
+			<INTRO id="intro"> 
+			Sorting with tapes is essentially similar to the merge sort used for sorting with disks. 
+			The differences arise due to the sequential access restriction of tapes. 
+			This makes the selection time prior to data transmission an important factor, unlike seek time and latency time. 
+			Thus is sorting with tapes we will be more concerned with arrangement of blocks and runs on the tape so s to reduce the selection or across time.
+			</INTRO>
+			<DEFINITION id="def">This sorting requires auxiliary storage.These methods involve as much external processing as processing in the CPU. 
+			</DEFINITION>
+			<EXAMPLE id="ex">
+			A file of 6000 records is to be sorted. It is stored on a tape and the block length is 500. The main memory can sort unto a 1000 records at a time. We have in addition 4 search tapes T1-T4.
+			</EXAMPLE>
+			<SUMMARY id="summary">
+			External sorting is an important activity in large businesses. The choice of an external Sorting algorithm is depends on external system considerations.
+			</SUMMARY>
+			<ASSIGNMENT id="assign"> 
+			1. You are asked to sort 15 randomly .you should prefer
+				(a) bubble sort (b) quick sort (c) merger sort (d) external sort
+				
+			2. Which of the following algorithm design technique is used in the quick sort?
+				(a) Dynamic programming
+				(b) BackTracking
+				(c) Divide and conquer
+				(d) Greedy method
+			3. The number of swapping needed to sort the numbers 8, 22,7,9,31,19,5,13 in ascending order, using bubble sort is
+				(a) 11 (b) 12 (c) 13 (d) 14
+			4. What is merging?
+			</ASSIGNMENT>
+			
+			<PIC id="img1"> </PIC>
+			<AUDIO id="audio"> </AUDIO>
+			<VIDEO id="video"> </VIDEO>
+		</SUB_TOPIC>
+		
+		
+	</TOPIC>
+</SORTING_TECHNIQUES>

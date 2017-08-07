@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+
+	<package name="default" namespace="/" extends="struts-default">
+
+		<action name="home">
+			<result>/jsp/home.jsp</result>
+		</action>
+		
+		<action name="login">
+			<result>/jsp/login.jsp</result>
+		</action>
+		<action name="register">
+			<result>/jsp/register.jsp</result>
+		</action>
+		<action name="suc">
+			<result>/jsp/success.jsp</result>
+		</action>
+		<action name="ad">
+			<result>/jsp/admin.jsp</result>
+		</action>
+
+		<action name="admin" class="cdac.action.AdminAction">
+
+			<result name="success">/jsp/report1.jsp</result>
+		</action>
+
+		<action name="admin2" class="cdac.action.AdminAction">
+
+			<result name="success">/jsp/report2.jsp</result>
+		</action>
+		
+		<action name="admin3" class="cdac.action.AdminAction">
+
+			<result name="success">/jsp/report3.jsp</result>
+		</action>
+		
+		
+		<action name="su" class="cdac.action.LoginAction">
+			<result name="adm">/jsp/admin.jsp</result>
+			<result name="success">/jsp/success.jsp</result>
+			<result name="error">/jsp/home.jsp</result>
+			<result name="input">/jsp/home.jsp</result>
+		</action>
+		<action name="lo" class="cdac.action.LogoutAction">
+			<result name="success">/jsp/home.jsp</result>
+		</action>
+
+
+		<action name="re" class="cdac.action.RegisterAction">
+			<result name="success">/jsp/home.jsp</result>
+			<result name="error">/jsp/register.jsp</result>
+			<result name="input">/jsp/register.jsp</result>
+		</action>
+		<action name="ex" class="cdac.action.ExtractAction">
+			<result name="success">/jsp/error.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+			<result name="input">/jsp/error.jsp</result>
+		</action>
+
+		<action name="Example" class="cdac.action.ExampleAction"
+			method="addUsers">
+			<result name="success">/jsp/success.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+
+		</action>
+
+	</package>
+
+
+
+</struts>
